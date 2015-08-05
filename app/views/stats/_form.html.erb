@@ -11,62 +11,87 @@
     
   <% end %>
 
-    <%= f.select :team, Stat::TEAM_NAMES, {prompt: 'Select Team'} %><br />
-    
-    <%= f.select :opponent, Stat::TEAM_NAMES, {prompt: 'Select Opponent'} %><br />
-  
-    <%= f.select :week, options_for_select(1..20), { prompt: "Select Week" } %><br />
-  
-    <%= f.label :win %><br>
-    <%= f.check_box :win %><br>
-  
-  
-    <%= f.label :home_team %><br>
-    <%= f.check_box :home_team %><br>
-  
+	<%= f.select :week, options_for_select(1..20), { prompt: "Select Week" } %><br />
+
   	<%= f.label :weather %><br>
     <%= f.select :weather, Stat::WEATHER_TYPES %><br>
+
+    <%= f.select :teamA, Stat::TEAM_NAMES, {prompt: 'Select Team'} %><br />
+
+    <%= f.label :pointsA, "Points" %><br>
+    <%= f.text_field :pointsA %><br>
+    
+    <%= f.label :homeA, "Home Team?" %><br>
+    <%= f.check_box :homeA %><br>
+    
+    <%= f.label :winA, "Win?" %><br>
+    <%= f.check_box :winA %><br>
+   
+    <%= f.label :run_attemptA, "Run Attempts" %><br>
+    <%= f.text_field :run_attemptA %><br>
+   
+    <%= f.label :yards_per_carryA, "Yards Per Carry" %><br>
+    <%= f.text_field :yards_per_carryA %><br>
   
+    <%= f.label :pass_attemptA, "Pass Attempts" %><br>
+    <%= f.text_field :pass_attemptA %><br>
   
-    <%= f.label :run_attempt %><br>
-    <%= f.text_field :run_attempt %><br>
+    <%= f.label :pass_completionA, "Pass Completions" %><br>
+    <%= f.text_field :pass_completionA %><br>
   
+    <%= f.label :yards_per_catchA, "Yards Per Catch" %><br>
+    <%= f.text_field :yards_per_catchA %><br>
   
-    <%= f.label :yards_per_carry %><br>
-    <%= f.text_field :yards_per_carry %><br>
+    <%= f.label :first_downA, "First Downs" %><br>
+    <%= f.text_field :first_downA %><br>
   
+    <%= f.label :fourth_down_attemptA, "4th Down Attempt" %><br>
+    <%= f.text_field :fourth_down_attemptA %><br>
   
-    <%= f.label :pass_attempt %><br>
-    <%= f.text_field :pass_attempt %><br>
+    <%= f.label :fourth_down_madeA, "4th Down Made" %><br>
+    <%= f.text_field :fourth_down_madeA %><br> 
   
-  
-    <%= f.label :pass_completion %><br>
-    <%= f.text_field :pass_completion %><br>
-  
+    <%= f.label :time_of_possesionA, "Time of Possession" %><br>
+    <%= f.time_select :time_of_possesionA, {discard_hour: true, include_seconds: true} %><br>
  
-    <%= f.label :yards_per_catch %><br>
-    <%= f.text_field :yards_per_catch %><br>
+     <%= f.select :teamB, Stat::TEAM_NAMES, {prompt: 'Select Team'} %><br />
+
+    <%= f.label :pointsB, "Points" %><br>
+    <%= f.text_field :pointsB %><br>
+    
+    <%= f.label :homeB, "Home Team?" %><br>
+    <%= f.check_box :homeB %><br>
+    
+    <%= f.label :winB, "Win?" %><br>
+    <%= f.check_box :winB %><br>
+   
+    <%= f.label :run_attemptB, "Run Attempts" %><br>
+    <%= f.text_field :run_attemptB %><br>
+   
+    <%= f.label :yards_per_carryB, "Yards Per Carry" %><br>
+    <%= f.text_field :yards_per_carryB %><br>
   
+    <%= f.label :pass_attemptB, "Pass Attempts" %><br>
+    <%= f.text_field :pass_attemptB %><br>
   
-    <%= f.label :first_down %><br>
-    <%= f.text_field :first_down %><br>
+    <%= f.label :pass_completionB, "Pass Completions" %><br>
+    <%= f.text_field :pass_completionB %><br>
   
+    <%= f.label :yards_per_catchB, "Yards Per Catch" %><br>
+    <%= f.text_field :yards_per_catchB %><br>
   
-    <%= f.label :fourth_down_attempt %><br>
-    <%= f.text_field :fourth_down_attempt %><br>
+    <%= f.label :first_downB, "First Downs" %><br>
+    <%= f.text_field :first_downB %><br>
   
+    <%= f.label :fourth_down_attemptB, "4th Down Attempt" %><br>
+    <%= f.text_field :fourth_down_attemptB %><br>
   
-    <%= f.label :fourth_down_made %><br>
-    <%= f.text_field :fourth_down_made %><br>
+    <%= f.label :fourth_down_madeB, "4th Down Made" %><br>
+    <%= f.text_field :fourth_down_madeB %><br> 
   
-  
-    <%= f.label :time_of_possesion %><br>
-    <%= f.time_select :time_of_possesion, {discard_hour: true, include_seconds: true} %><br>
-  
-  
-    <%= f.label :points %><br>
-    <%= f.text_field :points %><br>
-  
+    <%= f.label :time_of_possesionB, "Time of Possession" %><br>
+    <%= f.time_select :time_of_possesionB, {discard_hour: true, include_seconds: true} %><br>
+    
     <%= f.submit %>
   
 <% end %>

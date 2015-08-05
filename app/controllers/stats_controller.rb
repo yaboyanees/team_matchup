@@ -69,6 +69,6 @@ class StatsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stat_params
-      params.require(:stat).permit(:team, :opponent, :week, :win, :home_team, :weather, :run_attempt, :yards_per_carry, :pass_attempt, :pass_completion, :yards_per_catch, :first_down, :fourth_down_attempt, :fourth_down_made, :time_of_possesion, :points, :o_plays, :total_offense, :fourth_down_rating, :pass_efficiency)
+      params.require(:stat).permit(:weather, :week, :teamA, :teamB, :winA, :winB, :homeA, :homeB, :pointsA, :pointsB, :run_attemptA, :run_attemptB, :yards_per_carryA, :yards_per_carryB, :pass_attemptA, :pass_attemptB, :pass_completionA, :pass_completionB, :yards_per_catchA, :yards_per_catchB, :first_downA, :first_downB, :fourth_down_attemptA, :fourth_down_attemptB, :fourth_down_madeA, :fourth_down_madeB, :time_of_possesionA, :time_of_possesionB, :fourth_down_ratingA, :fourth_down_ratingB, :total_offenseA, :total_offenseB, :o_playsA, :o_playsB, :pass_efficiencyA, :pass_efficiencyB)
     end
 end

@@ -1,0 +1,59 @@
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Stats</h1>            
+    <% @stats.each do |stat| %>
+    	Week:<%= stat.week %><br />
+        <% if stat.win? %>
+        	(W) <%= stat.team %> VS <%= stat.opponent %><br />
+        <% else %>
+        	<%= stat.team %> versus <%= stat.opponent %> (W)<br />  
+        <% end %>
+        Conditions: <%= stat.weather %><br /> 
+        Carries: <%= stat.run_attempt %><br /> 
+        YPR: <%= stat.yards_per_carry %><br /> 
+        Completed Passes: <%= stat.pass_completion %>/<%= stat.pass_attempt %> or <%= stat.pass_efficiency %>%<br /> 
+        YPP: <%= stat.yards_per_catch %><br /> 
+        Total Plays: <%= stat.o_plays %><br /> 
+        Total Offense: <%= stat.total_offense %><br /> 
+        First Downs: <%= stat.first_down %><br /> 
+        Fourth Downs: <%= stat.fourth_down_made %>/<%= stat.fourth_down_attempt %> or <%= stat.fourth_down_rating %>%<br /> 
+        Time of Possession: <%= stat.time_of_possesion.strftime("%M:%S") %><br /> 
+        Points Scored: <%= stat.points %><br /> 
+        <%= link_to 'Edit', edit_stat_path(stat) %>
+        <%= link_to 'Remove', stat, method: :delete, data: { confirm: 'Are you sure?' } %><br />
+    
+
+<br />
+
+	<script type="text/javascript">
+	  google.load("visualization", "1", {packages:["corechart"]});
+	  google.setOnLoadCallback(drawChart);
+	  function drawChart() {
+	
+		var data = google.visualization.arrayToDataTable([
+		  ['Label', 'Value'],
+		  ['Runs', <%= stat.run_yards %>],
+		  ['Passes', <%= stat.pass_yards %>]
+		]);
+	
+		var options = {
+		  title: 'Offense Snapshot',
+		  titleTextStyle: {color: 'black', fontSize: '25'},
+		  legend: 'none',
+		  pieSliceText: 'label',
+		  chartArea: {height: '70%', width: '70%'},
+		  fontSize: '20',
+		  slices: {	1: {offset: 0.1}
+		  }
+		};
+	
+		var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+	
+		chart.draw(data, options);
+	  }
+	</script>
+	<div id="chart_div"></div>
+	<% end %>
+	
+<%= link_to 'New Game', new_stat_path %>

@@ -1,0 +1,72 @@
+<%= form_for(@stat) do |f| %>
+  <% if @stat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stat.errors.count, "error") %> prohibited this stat from being saved:</h2>
+
+      <ul>
+      <% @stat.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    
+  <% end %>
+
+    <%= f.select :team, Stat::TEAM_NAMES, {prompt: 'Select Team'} %><br />
+    
+    <%= f.select :opponent, Stat::TEAM_NAMES, {prompt: 'Select Opponent'} %><br />
+  
+    <%= f.select :week, options_for_select(1..20), { prompt: "Select Week" } %><br />
+  
+    <%= f.label :win %><br>
+    <%= f.check_box :win %><br>
+  
+  
+    <%= f.label :home_team %><br>
+    <%= f.check_box :home_team %><br>
+  
+  	<%= f.label :weather %><br>
+    <%= f.select :weather, Stat::WEATHER_TYPES %><br>
+  
+  
+    <%= f.label :run_attempt %><br>
+    <%= f.text_field :run_attempt %><br>
+  
+  
+    <%= f.label :yards_per_carry %><br>
+    <%= f.text_field :yards_per_carry %><br>
+  
+  
+    <%= f.label :pass_attempt %><br>
+    <%= f.text_field :pass_attempt %><br>
+  
+  
+    <%= f.label :pass_completion %><br>
+    <%= f.text_field :pass_completion %><br>
+  
+ 
+    <%= f.label :yards_per_catch %><br>
+    <%= f.text_field :yards_per_catch %><br>
+  
+  
+    <%= f.label :first_down %><br>
+    <%= f.text_field :first_down %><br>
+  
+  
+    <%= f.label :fourth_down_attempt %><br>
+    <%= f.text_field :fourth_down_attempt %><br>
+  
+  
+    <%= f.label :fourth_down_made %><br>
+    <%= f.text_field :fourth_down_made %><br>
+  
+  
+    <%= f.label :time_of_possesion %><br>
+    <%= f.time_select :time_of_possesion, {discard_hour: true, include_seconds: true} %><br>
+  
+  
+    <%= f.label :points %><br>
+    <%= f.text_field :points %><br>
+  
+    <%= f.submit %>
+  
+<% end %>

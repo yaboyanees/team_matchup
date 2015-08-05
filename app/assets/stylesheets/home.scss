@@ -1,0 +1,23 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#header{
+	background: url(hero.jpeg) no-repeat;
+	background-size: cover;
+	opacity:0.9;
+	min-width: 100%;
+	min-height: 100%;
+	h2 {
+		margin: 0;
+		padding: 15% 0 0 0;
+		font-size: 15.0vw;
+		text-align: center;
+		text-shadow:3px 3px #000000;
+		color:#fff;
+		font-family:helvetica, sans-serif;	
+		span {
+			font-style:italic;
+		}
+	}
+}

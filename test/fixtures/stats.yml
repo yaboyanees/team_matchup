@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  team: 1
+  opponent: 1
+  week: 1
+  win: false
+  home_team: false
+  location: MyString
+  weather: MyString
+  run_attempt: 1
+  yards_per_carry: 1
+  pass_attempt: 1
+  pass_completition: 1
+  pass_efficiency: 1
+  yards_per_catch: 1
+  o_plays: 1
+  total_offense: 1
+  first_down: 1
+  fourth_down_attempt: 1
+  fourth_down_made: 1
+  fourth_down_rating: 1
+  time_of_possesion: 2015-08-02 18:02:57
+  points: 1
+
+two:
+  team: 1
+  opponent: 1
+  week: 1
+  win: false
+  home_team: false
+  location: MyString
+  weather: MyString
+  run_attempt: 1
+  yards_per_carry: 1
+  pass_attempt: 1
+  pass_completition: 1
+  pass_efficiency: 1
+  yards_per_catch: 1
+  o_plays: 1
+  total_offense: 1
+  first_down: 1
+  fourth_down_attempt: 1
+  fourth_down_made: 1
+  fourth_down_rating: 1
+  time_of_possesion: 2015-08-02 18:02:57
+  points: 1

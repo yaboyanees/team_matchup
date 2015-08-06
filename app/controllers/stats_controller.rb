@@ -4,12 +4,17 @@ class StatsController < ApplicationController
   # GET /stats
   # GET /stats.json
   def index
-    @stats = Stat.all
-  end
+    @shared = Stat.select("id", "weather", "week")
+    @teamA = Stat.select("teamA", "winA", "homeA", "pointsA", "run_attemptA", "yards_per_carryA", "pass_attemptA", "pass_completionA", "yards_per_catchA", "first_downA", "fourth_down_attemptA", "fourth_down_madeA", "time_of_possesionA", "fourth_down_ratingA", "total_offenseA", "o_playsA", "pass_efficiencyA")
+    @teamB = Stat.select("teamB", "winB", "homeB", "pointsB", "run_attemptB", "yards_per_carryB", "pass_attemptB", "pass_completionB", "yards_per_catchB", "first_downB", "fourth_down_attemptB", "fourth_down_madeB", "time_of_possesionB", "fourth_down_ratingB", "total_offenseB", "o_playsB", "pass_efficiencyB")
+ end
 
   # GET /stats/1
   # GET /stats/1.json
   def show
+    @shared = Stat.select("id", "weather", "week")
+    @teamA = Stat.select("teamA", "winA", "homeA", "pointsA", "run_attemptA", "yards_per_carryA", "pass_attemptA", "pass_completionA", "yards_per_catchA", "first_downA", "fourth_down_attemptA", "fourth_down_madeA", "time_of_possesionA", "fourth_down_ratingA", "total_offenseA", "o_playsA", "pass_efficiencyA")
+    @teamB = Stat.select("teamB", "winB", "homeB", "pointsB", "run_attemptB", "yards_per_carryB", "pass_attemptB", "pass_completionB", "yards_per_catchB", "first_downB", "fourth_down_attemptB", "fourth_down_madeB", "time_of_possesionB", "fourth_down_ratingB", "total_offenseB", "o_playsB", "pass_efficiencyB")
   end
 
   # GET /stats/new

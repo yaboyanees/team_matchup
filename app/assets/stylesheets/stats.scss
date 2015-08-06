@@ -2,9 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#chart_div {
-	width: 310px; 
-	height: 310px;
-	padding: 0;
+#teamlist {
 	margin: 0;
+	padding: 0;
+	text-align: center;
+	#teamA, #teamB {
+		width: 50%;
+		height: 100%;
+		float:left;		
+	}
+}
+#chart_divA, #chart_divB, #chart_divGaugeA1, #chart_divGaugeA2, #chart_divGaugeB1, #chart_divGaugeB2  {
+	width: 250px; 
+	height: 250px;
+	padding: 0;
+	margin: 0 auto 0 auto;
+}
+
+#weekrollup {
+	margin: 0 0 0 1%;
+	padding: 0;
 }

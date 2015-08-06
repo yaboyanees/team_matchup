@@ -1,107 +1,197 @@
-<!--
-<p id="notice"><%= notice %></p>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
-<p>
-  <strong>Team:</strong>
-  <%= @stat.team %>
-</p>
+<div id="teamlist">
+	<h1>Listing Teams</h1>    
+	<p><%= link_to 'Add Game', new_stat_path %></p>
+	
+	<div id="teamA">
+		<% @shared.each do |s| %>       
+			<% @teamA.each do |ta|%>         
+				<% if ta.winA? %>
+					(W) <%= ta.teamA %><br />
+				<% else %>
+					(L) <%= ta.teamA %><br /> 
+				<% end %>
+				<%= ta.pointsA %><br />
+				<% if ta.homeA? %>
+					(HOME)<br />
+				<% else %>
+					(AWAY)<br />
+				<% end %>
+				<%= ta.time_of_possesionA.strftime("%M:%S") %><br /> 
+	
+			<script type="text/javascript">
+			  google.load("visualization", "1", {packages:["gauge"]});
+			  google.setOnLoadCallback(drawChart);
+			  function drawChart() {
+			
+				var data = google.visualization.arrayToDataTable([
+				  ['Label', 'Value'],
+				  ['4th Down Rating', <%= ta.fourth_down_ratingA %>]
+				]);
+			
+				var options = {
+				  width: '70%', height: '70%',
+				  redFrom: 0, redTo: 20,
+				  greenFrom:80, greenTo: 100,
+				  minorTicks: 5
+				};
+			
+				var chart = new google.visualization.Gauge(document.getElementById('chart_divGaugeA1'));
+			
+				chart.draw(data, options);
+			  }
+			</script>
+			<div id="chart_divGaugeA1"></div>
+	
+			<script type="text/javascript">
+			  google.load("visualization", "1", {packages:["gauge"]});
+			  google.setOnLoadCallback(drawChart);
+			  function drawChart() {
+			
+				var data = google.visualization.arrayToDataTable([
+				  ['Label', 'Value'],
+				  ['Pass Efficiency', <%= ta.pass_efficiencyA %>]
+				]);
+			
+				var options = {
+				  width: '70%', height: '70%',
+				  redFrom: 0, redTo: 20,
+				  greenFrom:80, greenTo: 100,
+				  minorTicks: 5
+				};
+			
+				var chart = new google.visualization.Gauge(document.getElementById('chart_divGaugeA2'));
+			
+				chart.draw(data, options);
+			  }
+			</script>
+			<div id="chart_divGaugeA2"></div>
+			
+			<script type="text/javascript">
+			  google.load("visualization", "1", {packages:["corechart"]});
+			  google.setOnLoadCallback(drawChart);
+			  function drawChart() {
+			
+				var data = google.visualization.arrayToDataTable([
+				  ['Label', 'Value'],
+				  ['Runs', <%= ta.run_yardsA %>],
+				  ['Passes', <%= ta.pass_yardsA %>]
+				]);
+			
+				var options = {
+				  titleTextStyle: {color: 'black', fontSize: '25'},
+				  legend: 'none',
+				  pieSliceText: 'label',
+				  chartArea: {height: '70%', width: '70%'},
+				  fontSize: '18',
+				  slices: {	1: {offset: 0.1}
+				  }
+				};
+			
+				var chart = new google.visualization.PieChart(document.getElementById('chart_divA'));
+			
+				chart.draw(data, options);
+			  }
+			</script>
+			<div id="chart_divA"></div>
+			</div>
+			
+			<div id="teamB">
+			<% @teamB.each do |tb|%>   
+				<% if tb.winB? %>
+					<%= tb.teamB %> (W)<br />
+				<% else %>
+					<%= tb.teamB %> (L)<br /> 
+				<% end %>
+				<%= tb.pointsB %><br />
+				<% if tb.homeB? %>
+					(HOME)<br />
+				<% else %>
+					(AWAY)<br />
+				<% end %>
+				<%= tb.time_of_possesionB.strftime("%M:%S") %><br /> 
+	
+			<script type="text/javascript">
+			  google.load("visualization", "1", {packages:["gauge"]});
+			  google.setOnLoadCallback(drawChart);
+			  function drawChart() {
+			
+				var data = google.visualization.arrayToDataTable([
+				  ['Label', 'Value'],
+				  ['4th Down Rating', <%= tb.fourth_down_ratingB %>]
+				]);
+			
+				var options = {
+				  width: '70%', height: '70%',
+				  redFrom: 0, redTo: 20,
+				  greenFrom:80, greenTo: 100,
+				  minorTicks: 5
+				};
+			
+				var chart = new google.visualization.Gauge(document.getElementById('chart_divGaugeB1'));
+			
+				chart.draw(data, options);
+			  }
+			</script>
+			<div id="chart_divGaugeB1"></div>
+	
+			<script type="text/javascript">
+			  google.load("visualization", "1", {packages:["gauge"]});
+			  google.setOnLoadCallback(drawChart);
+			  function drawChart() {
+			
+				var data = google.visualization.arrayToDataTable([
+				  ['Label', 'Value'],
+				  ['Pass Efficiency', <%= tb.pass_efficiencyB %>]
+				]);
+			
+				var options = {
+				  width: '70%', height: '70%',
+				  redFrom: 0, redTo: 20,
+				  greenFrom:80, greenTo: 100,
+				  minorTicks: 5
+				};
+			
+				var chart = new google.visualization.Gauge(document.getElementById('chart_divGaugeB2'));
+			
+				chart.draw(data, options);
+			  }
+			</script>
+			<div id="chart_divGaugeB2"></div>
+				
+			<script type="text/javascript">
+			  google.load("visualization", "1", {packages:["corechart"]});
+			  google.setOnLoadCallback(drawChart);
+			  function drawChart() {
+			
+				var data = google.visualization.arrayToDataTable([
+				  ['Label', 'Value'],
+				  ['Runs', <%= tb.run_yardsB %>],
+				  ['Passes', <%= tb.pass_yardsB %>]
+				]);
+			
+				var options = {
+				  titleTextStyle: {color: 'black', fontSize: '25'},
+				  legend: 'none',
+				  pieSliceText: 'label',
+				  chartArea: {height: '70%', width: '70%'},
+				  fontSize: '18',
+				  slices: {	1: {offset: 0.1}
+				  }
+				};
+			
+				var chart = new google.visualization.PieChart(document.getElementById('chart_divB'));
+			
+				chart.draw(data, options);
+			  }
+			</script>
+			<div id="chart_divB"></div>
+	</div>
+	
 
-<p>
-  <strong>Opponent:</strong>
-  <%= @stat.opponent %>
-</p>
-
-<p>
-  <strong>Week:</strong>
-  <%= @stat.week %>
-</p>
-
-<p>
-  <strong>Win:</strong>
-  <%= @stat.win %>
-</p>
-
-<p>
-  <strong>Home team:</strong>
-  <%= @stat.home_team %>
-</p>
-
-<p>
-  <strong>Weather:</strong>
-  <%= @stat.weather %>
-</p>
-
-<p>
-  <strong>Run attempt:</strong>
-  <%= @stat.run_attempt %>
-</p>
-
-<p>
-  <strong>Yards per carry:</strong>
-  <%= @stat.yards_per_carry %>
-</p>
-
-<p>
-  <strong>Pass attempt:</strong>
-  <%= @stat.pass_attempt %>
-</p>
-
-<p>
-  <strong>Pass completion:</strong>
-  <%= @stat.pass_completion %>
-</p>
-
-<p>
-  <strong>Pass efficiency:</strong>
-  <%= @stat.pass_efficiency %>
-</p>
-
-<p>
-  <strong>Yards per catch:</strong>
-  <%= @stat.yards_per_catch %>
-</p>
-
-<p>
-  <strong>O plays:</strong>
-  <%= @stat.o_plays %>
-</p>
-
-<p>
-  <strong>Total offense:</strong>
-  <%= @stat.total_offense %>
-</p>
-
-<p>
-  <strong>First down:</strong>
-  <%= @stat.first_down %>
-</p>
-
-<p>
-  <strong>Fourth down attempt:</strong>
-  <%= @stat.fourth_down_attempt %>
-</p>
-
-<p>
-  <strong>Fourth down made:</strong>
-  <%= @stat.fourth_down_made %>
-</p>
-
-<p>
-  <strong>Fourth down rating:</strong>
-  <%= @stat.fourth_down_rating %>
-</p>
-
-<p>
-  <strong>Time of possesion:</strong>
-  <%= @stat.time_of_possesion %>
-</p>
-
-<p>
-  <strong>Points:</strong>
-  <%= @stat.points %>
-</p>
-
-<%= link_to 'Edit', edit_stat_path(@stat) %> |
-<%= link_to 'Back', stats_path %>
-
--->
+    <% end %>
+	<% end %>
+	<%= link_to 'Edit', edit_stat_path(s) %>
+	<% end %>
+</div>

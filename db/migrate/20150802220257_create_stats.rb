@@ -13,14 +13,14 @@ class CreateStats < ActiveRecord::Migration
 	  t.integer	:pointsB
 	  t.integer	:run_attemptA
 	  t.integer	:run_attemptB
-	  t.integer	:yards_per_carryA
-	  t.integer	:yards_per_carryB
+	  t.float	:yards_per_carryA
+	  t.float	:yards_per_carryB
 	  t.integer	:pass_attemptA
 	  t.integer	:pass_attemptB
 	  t.integer	:pass_completionA
 	  t.integer	:pass_completionB
-	  t.integer	:yards_per_catchA
-	  t.integer	:yards_per_catchB
+	  t.float	:yards_per_catchA
+	  t.float	:yards_per_catchB
 	  t.integer	:first_downA
 	  t.integer	:first_downB
 	  t.integer	:fourth_down_attemptA

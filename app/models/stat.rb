@@ -13,12 +13,14 @@ class Stat < ActiveRecord::Base
     
     def run_yardsA
     	a = self.yards_per_carryA * self.run_attemptA
-    	return a
+    	b = a.round(1)
+    	return b
     end
     
     def pass_yardsA
     	a = self.yards_per_catchA * self.pass_attemptA
-    	return a
+    	b = a.round(1)
+    	return b
     end
     
     def o_playsA
@@ -28,7 +30,8 @@ class Stat < ActiveRecord::Base
     
     def total_offenseA
     	offense = (self.yards_per_carryA * self.run_attemptA) + (self.yards_per_catchA * self.pass_attemptA)
-    	return offense 
+    	b = offense.round(1)
+    	return b
     end
     
     def fourth_down_ratingA
@@ -46,12 +49,14 @@ class Stat < ActiveRecord::Base
 
     def run_yardsB
     	a = self.yards_per_carryB * self.run_attemptB
-    	return a
+    	b = a.round(1)
+    	return b
     end
     
     def pass_yardsB
     	a = self.yards_per_catchB * self.pass_attemptB
-    	return a
+    	b = a.round(1)
+    	return b
     end
     
     def o_playsB
@@ -61,7 +66,8 @@ class Stat < ActiveRecord::Base
     
     def total_offenseB
     	offense = (self.yards_per_carryB * self.run_attemptB) + (self.yards_per_catchB * self.pass_attemptB)
-    	return offense 
+    	b = offense.round(1)
+    	return b 
     end
     
     def fourth_down_ratingB

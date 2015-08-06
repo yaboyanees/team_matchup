@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'team_rollup/index'
-
-  get 'team_rollup/show'
 
   resources :stats
   resources :teams

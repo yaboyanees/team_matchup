@@ -1,15 +1,11 @@
 <div id="weekrollup">
-	<h1>Listing Games</h1>    
-	<p><%= link_to 'Add Game', new_stat_path %></p>
-		<% @shared.each do |s| %>       
-			<% @teamA.each do |ta|%>  
-				<% @teamB.each do |tb|%>
-					<% if ta.winA? %>
-						(W) <%= link_to ta.teamA, stat_path(:id => s.id), 'data-no-turbolink' => true %> (<%= ta.pointsA %>) VS (L) <%= link_to tb.teamB, stat_path(:id => s.id), 'data-no-turbolink' => true %> (<%= tb.pointsB %>)<br />
-					<% else %>
-						(L) <%= link_to ta.teamA, stat_path(:id => s.id), 'data-no-turbolink' => true %> (<%= ta.pointsA %>) VS (W) <%= link_to tb.teamB, stat_path(:id => s.id), 'data-no-turbolink' => true %> (<%= tb.pointsB %>)<br />
-					<% end %>
-				<% end %>
+	<h1>All Games</h1>    
+	<p><%= link_to 'Add Game', new_stat_path %> | <%= link_to 'All Games', stats_path %></p>
+		<% @stats.each do |s| %>
+			<% if s.winA? %>
+				(W) <%= link_to s.teamA, stat_path(:id => s.id), 'data-no-turbolink' => true %> (<%= s.pointsA %>) VS (L) <%= link_to s.teamB, stat_path(:id => s.id), 'data-no-turbolink' => true %> (<%= s.pointsB %>)<br />
+			<% else %>
+				(L) <%= link_to s.teamA, stat_path(:id => s.id), 'data-no-turbolink' => true %> (<%= s.pointsA %>) VS (W) <%= link_to s.teamB, stat_path(:id => s.id), 'data-no-turbolink' => true %> (<%= s.pointsB %>)<br />
 			<% end %>
 		<% end %>
 </div>

@@ -10,12 +10,11 @@
       </ul>
     
   <% end %>
-
-	<%= f.select :week, options_for_select(1..20), { prompt: "Select Week" } %><br />
-
-  	<%= f.label :weather %><br>
-    <%= f.select :weather, Stat::WEATHER_TYPES %><br>
-
+<div id="center">
+	<%= f.select :week, options_for_select(1..20), { prompt: "Game Week" } %><br />
+    <%= f.select :weather, Stat::WEATHER_TYPES, { prompt: "Playing Conditions" } %><br>
+</div>
+<div id="teamA">
     <%= f.select :teamA, Stat::TEAM_NAMES, {prompt: 'Select Team'} %><br />
 
     <%= f.label :pointsA, "Points" %><br>
@@ -53,7 +52,8 @@
   
     <%= f.label :time_of_possesionA, "Time of Possession" %><br>
     <%= f.time_select :time_of_possesionA, {discard_hour: true, include_seconds: true} %><br>
- 
+</div>
+<div id="teamB">
      <%= f.select :teamB, Stat::TEAM_NAMES, {prompt: 'Select Team'} %><br />
 
     <%= f.label :pointsB, "Points" %><br>
@@ -91,7 +91,8 @@
   
     <%= f.label :time_of_possesionB, "Time of Possession" %><br>
     <%= f.time_select :time_of_possesionB, {discard_hour: true, include_seconds: true} %><br>
-    
-    <%= f.submit %>
-  
+</div>
+<div id="center">
+    <%= f.submit "Create Game" %> | <%= link_to 'Cancel', stats_path %>
+</div>  
 <% end %>

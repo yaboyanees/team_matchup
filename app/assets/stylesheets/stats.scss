@@ -22,5 +22,14 @@
 #weekrollup, #statform {
 	margin: 0 0 0 1%;
 	padding: 0;
+	#center, h1, p {
+		text-align: center;
+	}
+	#teamA, #teamB {
+		width: 50%;
+		height: 100%;
+		float:left;	
+		text-align: center;
+	}
 }
 
